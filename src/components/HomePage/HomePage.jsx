@@ -1,5 +1,5 @@
 import css from './HomePageStyles/HomePage.module.css';
-import ItemStories from './ItemStories.jsx';
+import ItemStories from '../ItemStories/ItemStories.jsx';
 const HomePage = () => {
     return (
         <main>  
