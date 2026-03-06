@@ -1,0 +1,7 @@
+header{
+    margin: 0 auto;
+    width: 1504px;
+    display: flex;
+    height: 68px;
+    border-bottom: 1px solid var(--border-color);
+}

@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --default-text-color: #FFFBFF;
+    --secondary-text-color: #7E83B0;
+    --focus-color: #F19A38;
+    --button-bg-color: #574AE2;
+    --background-color: #040305;
+    --border-color: #222A68;
+}
+body{
+    background-color: var(--background-color);
+}
+/* 
+Дефолтний шрифт: font-family: "Orelega One", serif;
+Для заголовкiв: font-family: "Nunito Sans", sans-serif;
+Цифри та т.д: font-family: "Montserrat", sans-serif;
+*/

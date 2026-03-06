@@ -1,0 +1,44 @@
+.AccountInfo {
+    height: 37px;
+    margin-left: 588px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .Account {
+        gap: 10px;
+        align-items: center;
+        display: flex;
+        h3 {
+            font-weight: 400;
+            font-family: "Orelega One", serif;
+            color: var(--secondary-text-color);
+            font-size: 18px;
+            line-height: 24px;
+        }
+    }
+    .Balance{
+        margin-left: 24px;
+        display: flex;
+        align-items: center;
+        gap: 29px;
+        h3{
+            color: var(--focus-color);
+            font-family: "Montserrat", sans-serif;
+            font-weight: 500;
+        }
+        button{
+            height: 37px;
+            width: 100px;
+            background-color: var(--button-bg-color);
+            color: var(--default-text-color);
+            font-family: "Orelega One", serif;
+            font-weight: 400;
+            font-size: 16px;
+            border: none;
+            padding: 10px 24px 10px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    }
+}

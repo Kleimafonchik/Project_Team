@@ -1,0 +1,48 @@
+.headerInfo{
+    align-items: center;
+    display: flex;
+    ul{
+        display: flex;
+        list-style: none;
+        margin-left: 40px;
+        gap: 24px;
+        a{
+            color: var(--default-text-color);
+            font-family: "Orelega One", serif;
+            font-weight: 400;
+            font-size: 16px;
+        }
+    }
+    a{
+        text-decoration: none;
+    }
+    .Options{
+        padding-top: 22px;
+        margin-left: 16px;
+        border-left: 1px solid var(--border-color);
+        height: 68px;
+        width: 169px;
+        display: flex;
+        justify-content: center;
+        button{
+            background-color: transparent;
+            border: none;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+        select{
+            margin-top: 1px;
+            margin-left: 32px;
+            width: 45px;
+            height: 20px;
+            background-color: var(--background-color);
+            border: none;
+            color: var(--default-text-color);
+            font-family: "Orelega One", serif;
+            font-weight: 400;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    }
+}
