@@ -1,25 +1,8 @@
 import { useMemo, useState } from 'react';
 import css from './ItemStories.module.css';
-import styled from 'styled-components';
 
 import ItemStoriesButtons from './ItemStoriesButtons';
-
-const weaponImages = import.meta.glob('../../assets/images/*.{png,jpg,jpeg,svg,webp}', {
-  eager: true,
-  import: 'default',
-});
-
-const RARITY_COLORS = {
-  Consumer: '#B0C3D9',
-  Industrial: '#5E98D9',
-  'Mil-Spec': '#4B69FF',
-  Restricted: '#8847FF',
-  Classified: '#D32CE6',
-  Covert: '#EB4B4B',
-  Contraband: '#E4AE39',
-};
-
-const getRarityColor = (rare) => RARITY_COLORS[rare] ?? '#B0C3D9';
+import ItemStoriesList from './ItemStoriesList';
 
 const normalizeNameFields = (rawNameWeapon, rawNameTag) => {
 
@@ -42,9 +25,6 @@ const normalizeNameFields = (rawNameWeapon, rawNameTag) => {
   return { NameTag: tag || null, NameWeapon: name };
 };
 
-const resolveWeaponIcon = (iconWeapon) =>
-  weaponImages[iconWeapon] ?? iconWeapon;
-
 const getFullWeaponName = (item) => {
   const tag = item?.NameTag ? String(item.NameTag).trim() : '';
   const name = item?.NameWeapon ? String(item.NameWeapon).trim() : '';
@@ -57,45 +37,6 @@ const byNameAsc = (a, b) =>
   });
 
 const byViewedAtDesc = (a, b) => (b.viewedAt ?? 0) - (a.viewedAt ?? 0);
-
-const Block = styled.div`
-  width: 144px;
-  height: 192px;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--border-color);
-  position: relative;
-`;
-const WeaponIcon = styled.img`
-  width: 120px;
-  height: 120px;
-`;
-
-const RarityDot = styled.div`
-  position: absolute;
-  left: 12px;
-  bottom: 12px;
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  background-color: ${(p) => p.$color};
-`;
-
-const WeaponTitle = styled.h2`
-  margin: 12px 8px 8px;
-  text-align: center;
-  font-size: 12px;
-  line-height: 100%;
-  color: #FFFBFF;
-  font-weight: 400;
-  font-family: "Orelega One", serif;
-
-  span {
-    font-weight: 700;
-  }
-`;
 
 const initialItems = [
   {
@@ -147,20 +88,6 @@ const ItemStories = () => {
     );
   };
 
-  const renderTitle = (item) => {
-    const rarityColor = getRarityColor(item.Rare);
-
-    return (
-      <WeaponTitle>
-        {item.NameTag ? (
-          <span style={{ color: rarityColor }}>{item.NameTag}</span>
-        ) : null}
-        {item.NameTag && item.NameWeapon ? ' ' : null}
-        {item.NameWeapon}
-      </WeaponTitle>
-    );
-  };
-
   const sortByName = (arr) => [...arr].sort(byNameAsc);
   const sortByViewed = (arr) =>
     [...arr].sort((a, b) => byViewedAtDesc(a, b) || byNameAsc(a, b));
@@ -184,26 +111,7 @@ const ItemStories = () => {
         activeFilter={activeFilter}
         setActiveFilter={setActiveFilter}
       />
-      <div className={css.itemStoriesFeed}>
-        {displayed.length === 0 ? (
-          <div className={css.empty}>
-            <h1>Поки що нiчого нема...</h1>
-          </div>
-        ) : (
-          displayed.map((item) => (
-            <Block key={item.id}>
-              {renderTitle(item)}
-              <WeaponIcon
-                src={resolveWeaponIcon(item.IconWeapon)}
-                alt={getFullWeaponName(item)}
-                onClick={() => markViewed(item.id)}
-                style={{ cursor: 'pointer' }}
-              />
-              <RarityDot $color={getRarityColor(item.Rare)} />
-            </Block>
-          ))
-        )}
-      </div>
+      <ItemStoriesList items={displayed} onItemView={markViewed} />
     </section>
   );
 };
