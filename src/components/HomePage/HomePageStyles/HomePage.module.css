@@ -6,11 +6,12 @@ main {
         gap: 42px;
         margin: 180px 0 0 68px;
 
-        .caseMain1{
+        .caseMain1 {
             animation: caseFloat 6s ease-in-out infinite;
             transform-origin: center center;
             filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.35));
         }
+
         .panelTitle {
             width: 704px;
             height: 316px;
@@ -45,7 +46,7 @@ main {
                 color: var(--default-text-color);
             }
 
-            button{
+            button {
                 cursor: pointer;
                 align-items: center;
                 border: none;
@@ -59,72 +60,77 @@ main {
                 color: var(--default-text-color);
                 background-color: #2C9645;
                 border-radius: 10px;
-                padding: 12px 24px 12px 20px; 
+                padding: 12px 24px 12px 20px;
                 gap: 10px;
                 display: flex;
-                img{
+
+                img {
                     width: 20px;
                     height: 15px;
                 }
             }
         }
     }
+
     .weapon1,
     .weapon2,
-    .weapon3{
+    .weapon3 {
         position: absolute;
         cursor: pointer;
         perspective: 420px;
         z-index: 2;
     }
 
-    .weapon1{
+    .weapon1 {
         margin: 680px 0 0 553px;
     }
 
-    .weapon2{
+    .weapon2 {
         margin: 1064px 0 0 40px;
     }
 
-    .weapon3{
+    .weapon3 {
         margin: 968px 0 0 740px;
     }
 
-    .weapon1 img{
+    .weapon1 img {
         width: 72px;
         height: 72px;
     }
 
-    .weapon2 img{
+    .weapon2 img {
         width: 96px;
         height: 96px;
     }
 
-    .weapon3 img{
+    .weapon3 img {
         width: 148px;
         height: 148px;
     }
 
     .weapon1 img,
     .weapon2 img,
-    .weapon3 img{
+    .weapon3 img {
         display: block;
         transform-style: preserve-3d;
         transition: transform 260ms ease-out;
         will-change: transform;
     }
-    .Stats{
+
+    .Stats {
         display: flex;
         justify-content: center;
         gap: 72px;
         margin-top: 150px;
-        .StatsItem{
+
+        .StatsItem {
             width: 168px;
-        height: 112px;
+            height: 112px;
             display: flex;
             flex-direction: column;
             gap: 8px;
-            h1{
+
+            h1 {
                 color: var(--default-text-color);
                 font-family: "Nunito Sans", sans-serif;
                 font-weight: 600;
@@ -132,18 +138,84 @@ main {
                 line-height: 56px;
                 letter-spacing: 2%;
             }
-            p{
+
+            p {
                 font-family: "Orelega One", serif;
                 font-weight: 400;
                 font-size: 18px;
                 line-height: 24px;
                 color: var(--default-text-color);
             }
+
+            .statValueAnimated {
+                animation: statValueJump 600ms cubic-bezier(0.25, 0.8, 0.25, 1);
+                transform-origin: bottom;
+                display: inline-block;
+            }
         }
-        :nth-child(1){
-            h1{
+
+        :nth-child(1) {
+            h1 {
                 color: var(--focus-color);
             }
+        }
+    }
+
+    .FreeCase {
+        display: flex;
+        background-color: var(--border-color);
+        width: 1424px;
+        height: 188px;
+        margin: 100px auto 0 auto;
+        position: relative;
+        border-radius: 24px;
+
+        .FreeCaseTitle {
+            display: flex;
+            flex-direction: column;
+            margin: 40px 0 0 40px;
+            width: 584px;
+            color: var(--default-text-color);
+
+            h2 {
+                font-family: "Nunito Sans", sans-serif;
+                font-weight: 700;
+                font-size: 40px;
+                line-height: 48px;
+                letter-spacing: 2%;
+            }
+
+            p {
+                font-family: "Orelega One", serif;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 24px;
+            }
+        }
+
+        img {
+            width: 474px;
+            height: 292px;
+            position: absolute;
+            margin-left: 615px;
+            animation: caseFloat 6s ease-in-out infinite;
+            transform-origin: center center;
+        }
+        button{
+            width: 153px;
+            height: 45px;
+            background-color: var(--button-bg-color);
+            border: none;
+            border-radius: 10px;
+            text-align: center;
+            color: var(--default-text-color);
+            font-family: "Orelega One", serif;
+            font-weight: 400;
+            font-size: 16px;
+            margin: 71.5px 0 0 577px;
+            cursor: pointer;
+            position: relative;
+            transition: transform 260ms cubic-bezier(0.22, 0.61, 0.36, 1);
         }
     }
 }
@@ -152,16 +224,38 @@ main {
     0% {
         transform: translateY(0) rotateZ(0deg);
     }
+
     25% {
         transform: translateY(-4px) rotateZ(-0.8deg);
     }
+
     50% {
         transform: translateY(-8px) rotateZ(0.4deg);
     }
+
     75% {
         transform: translateY(-4px) rotateZ(-0.6deg);
     }
+
     100% {
         transform: translateY(0) rotateZ(0deg);
+    }
+
+}
+
+@keyframes statValueJump {
+    0% {
+        transform: translateY(6px) scale(0.96);
+        opacity: 0;
+    }
+
+    45% {
+        transform: translateY(0) scale(1.04);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
     }
 }
