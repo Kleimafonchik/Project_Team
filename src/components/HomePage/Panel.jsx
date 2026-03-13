@@ -9,7 +9,7 @@ const Panel = () => {
             <div className={css.panelTitle}>
                 <h4>20% bonus on first deposit</h4>
                 <h1>
-                    CS 2 cases that you <br />
+                    CS 2 Cases that you <br />
                     want to open
                 </h1>
                 <p>

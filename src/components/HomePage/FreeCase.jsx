@@ -69,7 +69,7 @@ const FreeCase = () => {
       onMouseLeave={handleMouseLeave}
     >
       <div className={css.FreeCaseTitle}>
-        <h2>free case</h2>
+        <h2>Free case</h2>
         <p>
           Register on our service and receive a free case upon the first
           replenishment of the balance
@@ -84,7 +84,7 @@ const FreeCase = () => {
           pointerEvents: disabled ? 'none' : 'auto',
         }}
       >
-        get a free case
+        Get a free case
       </button>
     </section>
   );

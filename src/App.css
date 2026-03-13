@@ -10,11 +10,15 @@
     --button-bg-color: #574AE2;
     --background-color: #040305;
     --border-color: #222A68;
+    --thirst-text-color: #7D8091;
 }
 body{
     background-color: var(--background-color);
 }
-.backgraundlayer{
+a{
+    text-decoration: none;
+}
+.backgroundLayer{
     background-image: url('./assets/images/bg.png');
     background-size: cover;
     width: 1504px;
